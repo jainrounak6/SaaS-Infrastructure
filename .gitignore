@@ -1,0 +1,308 @@
+# =============================================================================
+# TERRAFORM & TERRAGRUNT - Industry Best Practices
+# =============================================================================
+
+# Local .terraform directories
+**/.terraform/*
+**/.terraform.lock.hcl
+
+# Terragrunt cache directories
+**/.terragrunt-cache/
+.terragrunt-cache/
+
+# .tfstate files (contain sensitive data)
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Exclude all .tfvars files (contain sensitive data)
+*.tfvars
+*.tfvars.json
+
+# Ignore override files (local overrides)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform plan files
+*.tfplan
+*.tfplan.*
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+# =============================================================================
+# SECURITY - Sensitive Data & Keys
+# =============================================================================
+
+# SSH Keys and Certificates
+*.pem
+*.key
+*.pub
+*.crt
+*.csr
+*.p12
+*.pfx
+*private*
+*public*
+
+# Key directories (entire structure)
+keys/
+CDN-KEYS/
+APP-SSH-KEYS/
+BASTIONHOST-SSH-KEYS/
+**/keys/
+**/CDN-KEYS/
+**/APP-SSH-KEYS/
+**/BASTIONHOST-SSH-KEYS/
+
+# Environment files (contain secrets)
+.env
+.env.*
+.env.local
+.env.production
+.env.staging
+.env.development
+.env.test
+
+# Cloud provider credentials
+.aws/
+aws-cli/
+~/.aws/
+.azure/
+.gcloud/
+service-account-*.json
+
+# =============================================================================
+# DEVELOPMENT & IDE
+# =============================================================================
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# =============================================================================
+# LOGS & TEMPORARY FILES
+# =============================================================================
+
+# Log files
+*.log
+logs/
+*.log.*
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+.cache/
+
+# Backup files
+*.backup
+*.bak
+*.old
+*.orig
+
+# =============================================================================
+# CI/CD & DEPLOYMENT
+# =============================================================================
+
+# Deployment artifacts
+deployments/
+artifacts/
+builds/
+dist/
+build/
+
+# CodeDeploy artifacts
+codedeploy-*.zip
+deployment-packages/
+
+# CI/CD specific
+.github/workflows/secrets/
+.gitlab-ci-local/
+
+# =============================================================================
+# PROGRAMMING LANGUAGES
+# =============================================================================
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+package-lock.json
+yarn.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.pytest_cache/
+.coverage
+.nyc_output/
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+vendor/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+target/
+.gradle/
+build/
+
+# =============================================================================
+# TESTING & COVERAGE
+# =============================================================================
+
+# Test coverage
+coverage/
+.nyc_output/
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Test results
+test-results/
+junit.xml
+test-output/
+
+# =============================================================================
+# CLOUD PROVIDER SPECIFIC
+# =============================================================================
+
+# AWS
+.aws-sam/
+samconfig.toml
+
+# =============================================================================
+# CUSTOM PROJECT EXCLUSIONS
+# =============================================================================
+
+# Cleanup directories (temporary files for review)
+cleanup/
+temp-cleanup/
+
+# Local development files
+local/
+dev-local/
+
+# =============================================================================
+# INCLUDE IMPORTANT FILES (Negated patterns)
+# =============================================================================
+
+# Include example files
+!*.example
+!*.sample
+!*.template
+
+# Include documentation
+!README.md
+!CHANGELOG.md
+!LICENSE
+!CONTRIBUTING.md
+
+# Include configuration templates
+!*.hcl.example
+!*.tf.example
+!*.yaml.example
+!*.yml.example
+!*.json.example
+
+# Include scripts
+!scripts/
+!*.sh
+!*.py
+!*.rb
+!*.ps1
+
+# Include Terraform modules (but not their .terraform directories)
+!modules/
+modules/**/.terraform/
+modules/**/.terraform.lock.hcl
+
+# Include customer configurations (but not their cache/state)
+!customers/
+customers/**/.terragrunt-cache/
+customers/**/.terraform/
+customers/**/.terraform.lock.hcl
+customers/**/*.tfstate*
+customers/**/keys/
+
+# Include root configuration files
+!root.hcl
+!terragrunt.hcl
+!*.hcl
+!*.tf
+!variables.tf
+!outputs.tf
+!main.tf
+!versions.tf
+!providers.tf
+
+# Include documentation and examples
+!docs/
+!examples/
+!*.md
+!*.rst
+!*.txt
+
+# Include CI/CD configuration (but not secrets)
+!.github/
+!.gitlab-ci.yml
+!.circleci/
+!Jenkinsfile
+!.github/workflows/
+!.github/workflows/secrets/
+
+# Include package management files
+!requirements.txt
+!Pipfile
+!Pipfile.lock
+!poetry.lock
+!pyproject.toml
+!go.mod
+!go.sum
+!package.json
+!yarn.lock
+!Gemfile
+!Gemfile.lock
